@@ -1,0 +1,100 @@
+/* Job Count Badge Styles */
+.job-count-badge {
+  display: inline-block;
+  background: #0073b1;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.category-card {
+  position: relative;
+}
+
+.category-card:hover .job-count-badge {
+  background: #005a8c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading spinner animation */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.loading-stats {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Small loading spinner for job count badges */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.job-count-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+.job-count-badge.loading {
+  padding: 8px 12px;
+}
+
+/* Sidebar loading spinner */
+.sidebar-count-spinner {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(0, 115, 177, 0.3);
+  border-top: 1.5px solid #0073b1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+/* View All Categories Link Style */
+.view-all-categories {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #e0e0e0;
+  text-align: center;
+}
+
+.view-all-categories a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  color: #0073b1;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-all-categories a:hover {
+  background: #e6f7ff;
+  color: #005a8c;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.view-all-categories i {
+  margin-right: 8px;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JobPortal LK Career Blog</title>
+    <description>Expert career advice, job search tips, and industry insights for Sri Lankan professionals</description>
+    <link>https://jobportal.lk/blog</link>
+    <atom:link href="https://jobportal.lk/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>en-US</language>
+  <pubDate>Sun, 13 Jul 2025 10:00:00 +0530</pubDate>
+  <lastBuildDate>Sun, 13 Jul 2025 10:00:00 +0530</lastBuildDate>
+    <generator>JobPortal LK Blog CMS</generator>
+    <image>
+      <url>https://jobportal.lk/images/logo.png</url>
+      <title>JobPortal LK</title>
+      <link>https://jobportal.lk</link>
+    </image>
+
+    <item>
+      <title>How to Ace Your Job Interview in Sri Lanka</title>
+      <description>Master the art of job interviews with culturally aware strategies tailored for the Sri Lankan job market.</description>
+      <link>https://jobportal.lk/blog/blog-interview-tips.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-interview-tips.html</guid>
+      <pubDate>Sun, 13 Jul 2025 08:00:00 +0530</pubDate>
+      <category>Career Tips</category>
+      <author>editorial@jobportal.lk (Career Expert Team)</author>
+      <content:encoded><![CDATA[
+        <p>Job interviews in Sri Lanka emphasise respect, preparation and cultural fit. Learn structured answer techniques and employer expectations.</p>
+        <ul><li>Punctuality & professional etiquette</li><li>STAR method application</li><li>Local employer priorities</li></ul>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Top 10 In-Demand Skills in Sri Lanka 2025</title>
+      <description>Discover the most valuable skills Sri Lankan employers want in 2025 and how to start building them.</description>
+      <link>https://jobportal.lk/blog/blog-skills-2025.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-skills-2025.html</guid>
+      <pubDate>Fri, 11 Jul 2025 09:00:00 +0530</pubDate>
+      <category>Industry Trends</category>
+      <author>editorial@jobportal.lk (Industry Analyst)</author>
+      <content:encoded><![CDATA[
+        <p>Cloud, data literacy, AI adoption, cybersecurity basics and stakeholder communication lead the 2025 priority list.</p>
+        <p>Pair one technical and one soft skill for balanced growth.</p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Breaking into Tech: A Guide for Sri Lankan Graduates</title>
+      <description>Roadmap from zero to employable: foundations, portfolio, validation and job sprint.</description>
+      <link>https://jobportal.lk/blog/blog-tech-careers.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-tech-careers.html</guid>
+      <pubDate>Wed, 09 Jul 2025 10:30:00 +0530</pubDate>
+      <category>Tech Careers</category>
+      <author>editorial@jobportal.lk (Tech Career Expert)</author>
+      <content:encoded><![CDATA[
+        <p>Adopt a phased plan: foundations, project portfolio, feedback loops and structured job search.</p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Building Professional Networks in Colombo</title>
+      <description>Practical, culturally aware networking strategies for Colombo professionals.</description>
+      <link>https://jobportal.lk/blog/blog-networking-colombo.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-networking-colombo.html</guid>
+      <pubDate>Mon, 07 Jul 2025 11:00:00 +0530</pubDate>
+      <category>Networking</category>
+      <author>editorial@jobportal.lk (Networking Expert)</author>
+      <content:encoded><![CDATA[
+        <p>Focus on value-first introductions, consistent follow-up logging and multi-language opportunities.</p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Crafting the Perfect Sri Lankan Resume</title>
+      <description>Structure, achievement phrasing and localisation tips to boost interview callbacks.</description>
+      <link>https://jobportal.lk/blog/blog-resume-tips.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-resume-tips.html</guid>
+      <pubDate>Sat, 05 Jul 2025 09:30:00 +0530</pubDate>
+      <category>Resume Tips</category>
+      <author>editorial@jobportal.lk (Resume Expert)</author>
+      <content:encoded><![CDATA[
+        <p>Use impact metrics, strong action verbs and a clean ATS-friendly layout.</p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Salary Negotiation Tips for Sri Lankan Professionals</title>
+      <description>Win fair offers using research-backed framing and non-cash benefit levers.</description>
+      <link>https://jobportal.lk/blog/blog-salary-negotiation.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-salary-negotiation.html</guid>
+      <pubDate>Thu, 03 Jul 2025 08:45:00 +0530</pubDate>
+      <category>Salary Guide</category>
+      <author>editorial@jobportal.lk (Compensation Expert)</author>
+      <content:encoded><![CDATA[
+        <p>Prepare ranges, frame quantified impact, negotiate total value (learning + flexibility).</p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Professional Development Opportunities in Sri Lanka</title>
+      <description>Strategic certification, micro-learning and project pathways for 2025 career growth.</description>
+      <link>https://jobportal.lk/blog/blog-professional-development.html</link>
+      <guid isPermaLink="true">https://jobportal.lk/blog/blog-professional-development.html</guid>
+      <pubDate>Tue, 01 Jul 2025 08:15:00 +0530</pubDate>
+      <category>Education</category>
+      <author>editorial@jobportal.lk (Learning & Growth)</author>
+      <content:encoded><![CDATA[
+        <p>Blend certifications, micro-learning streaks and public project output to accelerate credibility.</p>
+      ]]></content:encoded>
+    </item>
+  </channel>
+</rss>

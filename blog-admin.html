@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Admin - JobPortal LK</title>
+  <link rel="stylesheet" href="admin-styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <div class="admin-nav">
+        <div class="admin-logo">
+          <i class="fas fa-cog"></i>
+          <span>Blog Admin</span>
+        </div>
+        <div class="admin-user">
+          <i class="fas fa-user-circle"></i>
+          <span>Admin User</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-sidebar">
+        <nav class="admin-menu">
+          <a href="#dashboard" class="menu-item active">
+            <i class="fas fa-tachometer-alt"></i>
+            Dashboard
+          </a>
+          <a href="#new-post" class="menu-item">
+            <i class="fas fa-plus"></i>
+            New Post
+          </a>
+          <a href="#all-posts" class="menu-item">
+            <i class="fas fa-list"></i>
+            All Posts
+          </a>
+          <a href="#seo-tools" class="menu-item">
+            <i class="fas fa-search"></i>
+            SEO Tools
+          </a>
+          <a href="#analytics" class="menu-item">
+            <i class="fas fa-chart-bar"></i>
+            Analytics
+          </a>
+        </nav>
+      </div>
+
+      <div class="admin-content">
+        <!-- Dashboard -->
+        <section id="dashboard" class="admin-section active">
+          <h1><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="stat-content">
+                <h3>15,429</h3>
+                <p>Total Page Views</p>
+                <span class="stat-change positive">↗ 12% this week</span>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="stat-content">
+                <h3>28</h3>
+                <p>Published Posts</p>
+                <span class="stat-change positive">↗ 3 new this week</span>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-content">
+                <h3>1,247</h3>
+                <p>Newsletter Subscribers</p>
+                <span class="stat-change positive">↗ 45 new this week</span>
+              </div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="stat-content">
+                <h3>89%</h3>
+                <p>SEO Score</p>
+                <span class="stat-change positive">↗ Excellent</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="dashboard-widget">
+              <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <i class="fas fa-plus-circle"></i>
+                  <span>New post published: "Interview Tips"</span>
+                  <time>2 hours ago</time>
+                </div>
+                <div class="activity-item">
+                  <i class="fas fa-edit"></i>
+                  <span>Updated SEO meta for "Salary Guide"</span>
+                  <time>4 hours ago</time>
+                </div>
+                <div class="activity-item">
+                  <i class="fas fa-user"></i>
+                  <span>25 new newsletter subscribers</span>
+                  <time>1 day ago</time>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-widget">
+              <h3><i class="fas fa-lightbulb"></i> Content Ideas</h3>
+              <div class="ideas-list">
+                <div class="idea-item">
+                  <span>"Remote Work Trends in Sri Lanka 2025"</span>
+                  <button class="btn-small">Create Post</button>
+                </div>
+                <div class="idea-item">
+                  <span>"Startup Career Opportunities"</span>
+                  <button class="btn-small">Create Post</button>
+                </div>
+                <div class="idea-item">
+                  <span>"LinkedIn Profile Optimization Guide"</span>
+                  <button class="btn-small">Create Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- New Post -->
+        <section id="new-post" class="admin-section">
+          <h1><i class="fas fa-plus"></i> Create New Post</h1>
+          
+          <form class="post-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="post-title">Post Title</label>
+                <input type="text" id="post-title" placeholder="Enter an engaging title...">
+              </div>
+              <div class="form-group">
+                <label for="post-category">Category</label>
+                <select id="post-category">
+                  <option value="">Select Category</option>
+                  <option value="career-tips">Career Tips</option>
+                  <option value="industry-trends">Industry Trends</option>
+                  <option value="tech-careers">Tech Careers</option>
+                  <option value="resume-tips">Resume Tips</option>
+                  <option value="salary-guide">Salary Guide</option>
+                  <option value="networking">Networking</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="post-excerpt">Excerpt</label>
+              <textarea id="post-excerpt" rows="3" placeholder="Brief summary for the blog listing..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="post-content">Content</label>
+              <div class="editor-toolbar">
+                <button type="button" class="toolbar-btn" title="Bold"><i class="fas fa-bold"></i></button>
+                <button type="button" class="toolbar-btn" title="Italic"><i class="fas fa-italic"></i></button>
+                <button type="button" class="toolbar-btn" title="Heading"><i class="fas fa-heading"></i></button>
+                <button type="button" class="toolbar-btn" title="List"><i class="fas fa-list"></i></button>
+                <button type="button" class="toolbar-btn" title="Link"><i class="fas fa-link"></i></button>
+                <button type="button" class="toolbar-btn" title="Image"><i class="fas fa-image"></i></button>
+              </div>
+              <textarea id="post-content" rows="15" placeholder="Write your blog content here..."></textarea>
+            </div>
+
+            <div class="seo-section">
+              <h3><i class="fas fa-search"></i> SEO Optimization</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="meta-description">Meta Description</label>
+                  <textarea id="meta-description" rows="2" maxlength="160" placeholder="SEO meta description (max 160 characters)"></textarea>
+                  <div class="char-count">0/160</div>
+                </div>
+                <div class="form-group">
+                  <label for="keywords">Keywords</label>
+                  <input type="text" id="keywords" placeholder="job search sri lanka, career tips, interview">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary">Save Draft</button>
+              <button type="button" class="btn-primary">Publish Post</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- All Posts -->
+        <section id="all-posts" class="admin-section">
+          <h1><i class="fas fa-list"></i> All Posts</h1>
+          
+          <div class="posts-table">
+            <div class="table-header">
+              <div class="table-row">
+                <div class="table-cell">Title</div>
+                <div class="table-cell">Category</div>
+                <div class="table-cell">Status</div>
+                <div class="table-cell">Views</div>
+                <div class="table-cell">Date</div>
+                <div class="table-cell">Actions</div>
+              </div>
+            </div>
+            <div class="table-body">
+              <div class="table-row">
+                <div class="table-cell">
+                  <strong>How to Ace Your Job Interview in Sri Lanka</strong>
+                </div>
+                <div class="table-cell">
+                  <span class="category-tag career-tips">Career Tips</span>
+                </div>
+                <div class="table-cell">
+                  <span class="status-badge published">Published</span>
+                </div>
+                <div class="table-cell">2,341</div>
+                <div class="table-cell">July 13, 2025</div>
+                <div class="table-cell">
+                  <button class="action-btn edit" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="action-btn delete" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="table-row">
+                <div class="table-cell">
+                  <strong>Top 10 In-Demand Skills in Sri Lanka 2025</strong>
+                </div>
+                <div class="table-cell">
+                  <span class="category-tag industry-trends">Industry Trends</span>
+                </div>
+                <div class="table-cell">
+                  <span class="status-badge published">Published</span>
+                </div>
+                <div class="table-cell">1,890</div>
+                <div class="table-cell">July 11, 2025</div>
+                <div class="table-cell">
+                  <button class="action-btn edit" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="action-btn delete" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEO Tools -->
+        <section id="seo-tools" class="admin-section">
+          <h1><i class="fas fa-search"></i> SEO Tools</h1>
+          
+          <div class="seo-tools-grid">
+            <div class="seo-widget">
+              <h3><i class="fas fa-chart-line"></i> SEO Performance</h3>
+              <div class="seo-metrics">
+                <div class="metric">
+                  <span class="metric-label">Overall SEO Score</span>
+                  <div class="metric-value">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 89%"></div>
+                    </div>
+                    <span>89%</span>
+                  </div>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Page Load Speed</span>
+                  <div class="metric-value">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                    <span>92%</span>
+                  </div>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Mobile Friendly</span>
+                  <div class="metric-value">
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                    <span>95%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="seo-widget">
+              <h3><i class="fas fa-keywords"></i> Trending Keywords</h3>
+              <div class="keywords-list">
+                <div class="keyword-item">
+                  <span class="keyword">"job sri lanka"</span>
+                  <span class="search-volume">12,000/month</span>
+                </div>
+                <div class="keyword-item">
+                  <span class="keyword">"career opportunities colombo"</span>
+                  <span class="search-volume">3,400/month</span>
+                </div>
+                <div class="keyword-item">
+                  <span class="keyword">"interview tips"</span>
+                  <span class="search-volume">8,900/month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Simple admin navigation
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all items
+        document.querySelectorAll('.menu-item').forEach(mi => mi.classList.remove('active'));
+        document.querySelectorAll('.admin-section').forEach(section => section.classList.remove('active'));
+        
+        // Add active class to clicked item
+        item.classList.add('active');
+        
+        // Show corresponding section
+        const target = item.getAttribute('href').substring(1);
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // Character counter for meta description
+    const metaDescription = document.getElementById('meta-description');
+    const charCount = document.querySelector('.char-count');
+    
+    metaDescription.addEventListener('input', () => {
+      const count = metaDescription.value.length;
+      charCount.textContent = `${count}/160`;
+      charCount.style.color = count > 160 ? '#e53e3e' : '#666';
+    });
+
+    // Simple toolbar functionality
+    document.querySelectorAll('.toolbar-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Simple placeholder functionality
+        console.log('Editor action:', btn.title);
+      });
+    });
+  </script>
+</body>
+</html>

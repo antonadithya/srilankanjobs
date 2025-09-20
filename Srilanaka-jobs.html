@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latest Sri Lanka Jobs (AI Curated) | 7 Fresh Listings</title>
+  <meta name="description" content="Browse 7 freshly curated AI-ranked Sri Lanka jobs across IT, Finance, Banking, Marketing, Engineering & more. Fast rotating feed – verify source before applying." />
+  <meta name="keywords" content="latest jobs Sri Lanka, new jobs Sri Lanka today, IT jobs Sri Lanka, banking jobs Sri Lanka, marketing jobs Sri Lanka, engineering jobs Sri Lanka" />
+  <link rel="canonical" href="https://www.srilankanjobs.example/Srilanaka-jobs.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Latest Sri Lanka Jobs (AI Curated)" />
+  <meta property="og:description" content="AI micro-engine shows only 7 fresh Sri Lankan jobs at a time. Smarter, faster job discovery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.srilankanjobs.example/Srilanaka-jobs.html" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Sri Lanka Jobs (AI Curated)",
+    "description":"Rotating curated set of 7 fresh Sri Lanka job listings across multiple categories.",
+    "isPartOf": {"@type":"WebSite","name":"Srilankan Jobs","url":"https://www.srilankanjobs.example/"}
+  }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="jobs-style.css">
+  <link rel="stylesheet" href="job-counts.css">
+  <link rel="stylesheet" href="filters-style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- CORS Warning Banner -->
+  <div id="cors-warning" class="cors-warning" style="display:none;">
+    🚨 ERROR: You opened this file directly! Use web server instead: 
+    <span class="inline-demo-url">http://localhost:8000</span>
+    <a href="#" class="inline-hide-link" onclick="document.getElementById('cors-warning').style.display='none'">[Hide]</a>
+  </div>
+
+  <!-- Modern Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-briefcase"></i>
+        <span>Srilanka Jobs</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="Srilanaka-jobs.html" class="nav-link active">
+            <i class="fas fa-briefcase"></i>
+            All Jobs
+          </a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a href="blog.html" class="nav-link">
+            <i class="fab fa-blogger-b"></i>
+            Blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="https://freecvcreator.com/" class="nav-link" target="_blank" rel="noopener" title="Create CV for Free">
+            <i class="fas fa-file-alt"></i>
+            CV Maker <span class="badge-free">FREE</span>
+          </a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ai-feed-strip">
+    <div class="container ai-feed-inner">
+      <span class="ai-badge" aria-hidden="true"><i class="fas fa-robot"></i> AI Feed</span>
+      <p class="ai-tagline">Curated micro stream: <strong>7 fresh rotating Sri Lanka jobs</strong> selected & ranked by AI.</p>
+    </div>
+  </div>
+
+  
+
+  <!-- Jobs Container -->
+  <main class="jobs-section">
+    <div class="container">
+      <!-- Jobs page header (adds targets for JS updates) -->
+  <div class="jobs-page-header page-header-compact">
+       
+  <h2 id="jobs-results-title" class="jobs-results-title">IT &amp; Software Jobs</h2>
+      </div>
+      <!-- Enhanced Filter Bar -->
+      <div class="jobs-filter-bar">
+        <div class="filter-single-row">
+          <div class="search-input-group">
+            <i class="fas fa-search"></i>
+            <input type="text" id="job-search" placeholder="Search jobs...">
+          </div>
+          
+          <div class="date-filter-group">
+            <i class="fas fa-calendar-alt"></i>
+            <label for="date-filter" class="sr-only">Filter by posted date</label>
+            <select id="date-filter" class="date-filter" aria-label="Filter by posted date">
+              <option value="all">Any time</option>
+              <option value="today">Today</option>
+              <option value="week">Past week</option>
+              <option value="month">Past month</option>
+            </select>
+          </div>
+          
+          <div class="sort-dropdown">
+            <i class="fas fa-sort"></i>
+            <label for="sort-jobs" class="sr-only">Sort jobs</label>
+            <select id="sort-jobs" aria-label="Sort jobs">
+              <option value="recent">Most Recent</option>
+              <option value="relevant">Most Relevant</option>
+              <option value="company">Company A-Z</option>
+              <option value="title">Job Title A-Z</option>
+            </select>
+          </div>
+          
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" title="Grid View">
+              <i class="fas fa-th-large"></i>
+            </button>
+            <button class="view-btn" data-view="list" title="List View">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Active Filters Display -->
+  <div class="active-filters-display visually-hidden-initial" id="active-filters">
+          <!-- Active filter tags will be added here dynamically -->
+          <button class="clear-all" onclick="resetFilters()">Clear all filters</button>
+        </div>
+      </div>
+      
+      <!-- Main Content Area with Sidebar Layout -->
+      <div class="jobs-main-layout">
+        <!-- Mobile toggle for categories (injected for <768px) -->
+        <button class="jobs-mobile-toggle" id="jobsMobileToggle" aria-expanded="false" aria-controls="jobsSidebar">
+          <span><i class="fas fa-filter"></i> Filters & Categories</span>
+          <i class="fas fa-chevron-down chevron" aria-hidden="true"></i>
+        </button>
+        <!-- Left Sidebar - Categories -->
+        <aside class="jobs-sidebar" id="jobsSidebar" data-collapsed="true">
+          <div class="sidebar-section">
+            <h3><i class="fas fa-layer-group"></i> Job Categories</h3>
+            <button class="category-toggle" onclick="toggleCategories()">
+              <i class="fas fa-list"></i> Show Categories
+            </button>
+            <div class="category-list" id="category-list">
+              <div class="category-item active" data-category="IT-Sware/DB/QA/Web/Graphics/GIS">
+                <i class="fas fa-code"></i>
+                <span>IT & Software</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="IT-HWare/Networks/Systems">
+                <i class="fas fa-server"></i>
+                <span>IT Hardware &Networks</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="IT-Telecoms">
+                <i class="fas fa-signal"></i>
+                <span>IT Telecoms</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Accounting/Auditing/Finance">
+                <i class="fas fa-calculator"></i>
+                <span>Finance & Accounting</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Banking & Finance/Insurance">
+                <i class="fas fa-university"></i>
+                <span>Banking & Finance</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Sales/Marketing/Merchandising">
+                <i class="fas fa-chart-line"></i>
+                <span>Sales & Marketing</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="HR/Training">
+                <i class="fas fa-users"></i>
+                <span>HR & Training</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Corporate Management/Analysts">
+                <i class="fas fa-briefcase"></i>
+                <span>Corporate Management</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Office Admin/Secretary/Receptionist">
+                <i class="fas fa-clipboard"></i>
+                <span>Office Administration</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Civil Eng/Interior Design/Architecture">
+                <i class="fas fa-drafting-compass"></i>
+                <span>Civil Engineering</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Customer Relations/Public Relations">
+                <i class="fas fa-headset"></i>
+                <span>Customer Relations</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Logistics/Warehouse/Transport">
+                <i class="fas fa-truck"></i>
+                <span>Logistics & Transport</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Eng-Mech/Auto/Elec">
+                <i class="fas fa-wrench"></i>
+                <span>Mechanical Engineering</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Manufacturing/Operations">
+                <i class="fas fa-industry"></i>
+                <span>Manufacturing</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Media/Advert/Communication">
+                <i class="fas fa-paint-brush"></i>
+                <span>Media & Communication</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Hotel/Restaurant/Hospitality">
+                <i class="fas fa-concierge-bell"></i>
+                <span>Hospitality</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Travel/Tourism">
+                <i class="fas fa-plane"></i>
+                <span>Travel & Tourism</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Sports/Fitness/Recreation">
+                <i class="fas fa-running"></i>
+                <span>Sports & Recreation</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Hospital/Nursing/Healthcare">
+                <i class="fas fa-heartbeat"></i>
+                <span>Healthcare</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Legal/Law">
+                <i class="fas fa-balance-scale"></i>
+                <span>Legal</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Supervision/Quality Control">
+                <i class="fas fa-search"></i>
+                <span>Quality Control</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Apparel/Clothing">
+                <i class="fas fa-tshirt"></i>
+                <span>Apparel & Clothing</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Ticketing/Airline/Marine">
+                <i class="fas fa-ship"></i>
+                <span>Airlines & Marine</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Education">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="R&D/Science/Research">
+                <i class="fas fa-microscope"></i>
+                <span>Research & Development</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Agriculture/Dairy/Environment">
+                <i class="fas fa-seedling"></i>
+                <span>Agriculture</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Security">
+                <i class="fas fa-shield-alt"></i>
+                <span>Security</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Fashion/Design/Beauty">
+                <i class="fas fa-cut"></i>
+                <span>Fashion & Beauty</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="KPO/BPO">
+                <i class="fas fa-phone"></i>
+                <span>KPO/BPO</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Imports/Exports">
+                <i class="fas fa-globe"></i>
+                <span>Import/Export</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Architecture">
+                <i class="fas fa-drafting-compass"></i>
+                <span>Architecture</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Retail/Fashion">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Retail</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Call Center">
+                <i class="fas fa-headphones"></i>
+                <span>Call Center</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Delivery/Driving/Transport">
+                <i class="fas fa-motorcycle"></i>
+                <span>Delivery & Transport</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Digital Marketing">
+                <i class="fas fa-bullhorn"></i>
+                <span>Digital Marketing</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Government/Public Sector">
+                <i class="fas fa-landmark"></i>
+                <span>Government</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+              <div class="category-item" data-category="Fishing & Aquaculture">
+                <i class="fas fa-fish"></i>
+                <span>Fishing & Aquaculture</span>
+                <span class="job-count"><div class="sidebar-count-spinner"></div></span>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- Jobs Content Area -->
+        <div class="jobs-content">
+          <div id="jobs-container" class="jobs-grid">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>Loading amazing job opportunities...</p>
+            </div>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="pagination visually-hidden-initial" id="pagination">
+            <button class="page-btn prev" disabled>
+              <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <div class="page-numbers">
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <span class="page-dots">...</span>
+              <button class="page-btn">10</button>
+            </div>
+            <button class="page-btn next">
+              Next <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+  <h3><i class="fas fa-briefcase"></i> Srilankan Jobs</h3>
+        <p>Your trusted partner in finding the perfect job in Sri Lanka.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Srilanaka-jobs.html">Jobs</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+  <p>&copy; 2025 Srilankan Jobs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  
+  <script src="perf.js" defer></script>
+  <script>
+    // Safe setter to avoid null errors if elements are missing
+    function setText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    // Ensure content isn't hidden behind fixed navbar/banner
+    function updateHeaderOffset() {
+      const banner = document.getElementById('cors-warning');
+      const bannerH = banner && banner.offsetHeight ? banner.offsetHeight : 0;
+      const nav = document.querySelector('.navbar');
+      const main = document.querySelector('main.jobs-section');
+      if (nav && main) {
+        const navH = nav.offsetHeight || 0;
+        main.style.paddingTop = (bannerH + navH + 12) + 'px';
+      }
+    }
+
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      // Recalculate offset in case navbar height changes on toggle
+      setTimeout(updateHeaderOffset, 250);
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }));
+
+    // View toggle functionality (from category.html)
+    const viewBtns = document.querySelectorAll('.view-btn');
+    const jobsContainer = document.getElementById('jobs-container');
+
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        viewBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const view = btn.dataset.view;
+        if (view === 'list') {
+          jobsContainer.classList.add('jobs-list');
+          jobsContainer.classList.remove('jobs-grid');
+        } else {
+          jobsContainer.classList.add('jobs-grid');
+          jobsContainer.classList.remove('jobs-list');
+        }
+      });
+    });
+
+    // Category filter functionality - FIXED to work without redirect
+    const categoryItems = document.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active class from all items
+        categoryItems.forEach(i => i.classList.remove('active'));
+        // Add active to clicked item
+        item.classList.add('active');
+        
+        const category = item.dataset.category;
+        
+  // Update the page title without changing the URL
+  const categoryName = item.querySelector('span').textContent;
+  setText('current-category', categoryName);
+  setText('jobs-results-title', `${categoryName} Jobs`);
+  // Do not modify URL/query params
+        
+        // Update the global SHEET_NAME variable for script.js
+        window.SHEET_NAME = category;
+        
+        // Update the script.js variables
+        if (typeof SHEET_NAME !== 'undefined') {
+          SHEET_NAME = category;
+        }
+        
+        // Reload jobs with new category
+        if (typeof loadJobs === 'function') {
+          // Small delay to ensure variables are updated
+          setTimeout(() => {
+            loadJobs();
+          }, 100);
+        }
+      });
+    });
+
+    // Enhanced filter functionality
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const dateFilter = document.getElementById('date-filter');
+    const sortDropdown = document.getElementById('sort-jobs');
+    const jobSearch = document.getElementById('job-search');
+    
+    // Filter pill handlers
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', function() {
+        filterPills.forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filterType = this.dataset.filter;
+        console.log('Filter applied:', filterType);
+        // Here you can add actual filtering logic in the future
+      });
+    });
+
+    // Search and other filter handlers
+    if (jobSearch) {
+      jobSearch.addEventListener('input', function() {
+        console.log('Search:', this.value);
+        // Here you can add search filtering logic in the future
+      });
+    }
+
+    if (dateFilter) {
+      dateFilter.addEventListener('change', function() {
+        console.log('Date filter:', this.value);
+        // Here you can add date filtering logic in the future
+      });
+    }
+
+    if (sortDropdown) {
+      sortDropdown.addEventListener('change', function() {
+        console.log('Sort by:', this.value);
+        // Here you can add sorting logic in the future
+      });
+    }
+
+    // Clear filters button
+    const clearFiltersBtn = document.querySelector('.clear-filters-btn');
+    if (clearFiltersBtn) {
+      clearFiltersBtn.addEventListener('click', function() {
+        filterPills.forEach(p => p.classList.remove('active'));
+        filterPills[0].classList.add('active');
+        if (jobSearch) jobSearch.value = '';
+        if (dateFilter) dateFilter.value = 'all';
+        if (sortDropdown) sortDropdown.value = 'recent';
+        
+        // Reset to first category (IT & Software)
+        categoryItems.forEach(i => i.classList.remove('active'));
+        categoryItems[0].classList.add('active');
+  setText('current-category', 'IT & Software');
+  setText('jobs-results-title', 'IT & Software Jobs');
+  // Do not modify URL on clear; keep current URL
+        window.SHEET_NAME = 'IT-Sware/DB/QA/Web/Graphics/GIS';
+        
+        // Update script.js variable
+        if (typeof SHEET_NAME !== 'undefined') {
+          SHEET_NAME = window.SHEET_NAME;
+        }
+        
+        if (typeof loadJobs === 'function') {
+          // Small delay to ensure variables are updated
+          setTimeout(() => {
+            loadJobs();
+          }, 100);
+        }
+        
+        console.log('Filters cleared');
+      });
+    }
+
+    // Mobile category toggle function
+    function toggleCategories() {
+      const categoryList = document.getElementById('category-list');
+      const toggleBtn = document.querySelector('.category-toggle');
+      const isShowing = categoryList.classList.contains('show');
+      
+      // Remove any hiding class if present
+      categoryList.classList.remove('hiding');
+      
+      if (isShowing) {
+        categoryList.classList.remove('show');
+        toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show Categories';
+      } else {
+        categoryList.classList.add('show');
+        toggleBtn.innerHTML = '<i class="fas fa-times"></i> Hide Categories';
+      }
+    }
+
+    // Function to hide categories on mobile (with smooth animation)
+    function hideCategoriesOnMobile() {
+      const categoryList = document.getElementById('category-list');
+      const toggleBtn = document.querySelector('.category-toggle');
+      
+      // Only hide if currently showing
+      if (categoryList.classList.contains('show')) {
+        // Add hiding class for smooth animation
+        categoryList.classList.add('hiding');
+        
+        // After animation completes, remove show and hiding classes
+        setTimeout(() => {
+          categoryList.classList.remove('show', 'hiding');
+          toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show Categories';
+        }, 300); // Match the CSS transition duration
+      }
+    }
+
+    // Category selection handler
+    function handleCategorySelection(categoryElement) {
+      const category = categoryElement.dataset.category;
+      const categoryName = categoryElement.querySelector('span').textContent;
+      
+      // Add selection feedback animation
+      categoryElement.classList.add('selecting');
+      
+      // Update active state immediately for visual feedback
+      document.querySelectorAll('.category-item').forEach(item => {
+        item.classList.remove('active', 'selecting');
+      });
+      categoryElement.classList.add('active');
+      
+      // Update page title and breadcrumb
+  setText('current-category', categoryName);
+  setText('jobs-results-title', `${categoryName} Jobs`);
+      
+      // Update the global sheet name for script.js
+      window.SHEET_NAME = category;
+      
+      // Add a small delay before hiding categories for better UX
+      setTimeout(() => {
+        hideCategoriesOnMobile();
+        categoryElement.classList.remove('selecting');
+      }, 200);
+      
+      // Reload jobs with new category
+      if (typeof loadJobs === 'function') {
+        loadJobs();
+      }
+      
+  // Do not modify URL; keep it clean without ?sheet
+    }
+
+    // Check if opened directly (CORS warning)
+    if (window.location.protocol === 'file:') {
+      document.getElementById('cors-warning').style.display = 'block';
+      // Account for banner height when shown
+      setTimeout(updateHeaderOffset, 0);
+    }
+
+    // Initialize page with URL parameters
+    document.addEventListener('DOMContentLoaded', function() {
+      updateHeaderOffset();
+      window.addEventListener('resize', updateHeaderOffset);
+      const params = new URLSearchParams(window.location.search);
+      const sheetParam = params.get('sheet');
+      const categoryItems = document.querySelectorAll('.category-item');
+      // Sidebar mobile toggle logic
+      const mobileToggle = document.getElementById('jobsMobileToggle');
+      const sidebar = document.getElementById('jobsSidebar');
+      if (mobileToggle && sidebar) {
+        function syncAria(){
+          const collapsed = sidebar.dataset.collapsed === 'true';
+            mobileToggle.setAttribute('aria-expanded', String(!collapsed));
+        }
+        mobileToggle.addEventListener('click', () => {
+          const isCollapsed = sidebar.dataset.collapsed === 'true';
+          sidebar.dataset.collapsed = isCollapsed ? 'false' : 'true';
+          syncAria();
+        });
+        // Auto expand on wider screens
+        const mq = window.matchMedia('(min-width: 769px)');
+        function handleMQ(e){
+          if(e.matches){ sidebar.dataset.collapsed = 'false'; }
+          else { sidebar.dataset.collapsed = 'true'; }
+          syncAria();
+        }
+        mq.addEventListener('change', handleMQ);
+        handleMQ(mq);
+      }
+      
+      // Add click event listeners to all category items
+      categoryItems.forEach(item => {
+        item.addEventListener('click', function() {
+          handleCategorySelection(this);
+        });
+      });
+      
+  if (sheetParam) {
+        // Find and activate the category
+        const categoryItem = document.querySelector(`[data-category="${sheetParam}"]`);
+        if (categoryItem) {
+          categoryItems.forEach(i => i.classList.remove('active'));
+          categoryItem.classList.add('active');
+          
+          const categoryName = categoryItem.querySelector('span').textContent;
+          setText('current-category', categoryName);
+          setText('jobs-results-title', `${categoryName} Jobs`);
+          window.SHEET_NAME = sheetParam;
+        }
+      } else {
+        // Default to IT & Software category
+        window.SHEET_NAME = 'IT-Sware/DB/QA/Web/Graphics/GIS';
+  setText('current-category', 'IT & Software');
+  setText('jobs-results-title', 'IT & Software Jobs');
+        
+        // Make sure the first category is active
+        if (categoryItems.length > 0) {
+          categoryItems.forEach(i => i.classList.remove('active'));
+          categoryItems[0].classList.add('active');
+        }
+      }
+      
+      // Set the global SHEET_NAME for script.js
+      if (typeof SHEET_NAME !== 'undefined') {
+        SHEET_NAME = window.SHEET_NAME;
+      }
+  // Final pass to ensure correct spacing after initial layout
+  setTimeout(updateHeaderOffset, 0);
+    });
+  </script>
+  <script>
+    (function(){
+      if (window.matchMedia('(max-width: 500px)').matches) {
+        const footer = document.querySelector('footer');
+        if(!footer) return;
+        footer.classList.add('footer-js-enabled');
+        footer.querySelectorAll('.footer-section h4').forEach(h => {
+          const section = h.closest('.footer-section');
+          if(section){ section.dataset.collapsed = 'true'; }
+          h.setAttribute('tabindex','0');
+          function toggle(){ const s = h.closest('.footer-section'); if(!s) return; s.dataset.collapsed = s.dataset.collapsed === 'true' ? 'false':'true'; }
+          h.addEventListener('click', toggle);
+          h.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
+        });
+      }
+    })();
+  </script>
+  
+  <!-- Job Counts Script -->
+  <script src="job-counts.js"></script>
+  
+  <!-- Filtering Functionality -->
+  <script src="filters.js"></script>
+  
+  <!-- Active Filters Visualization -->
+  <script src="active-filters.js"></script>
+  
+  <!-- Main Jobs Script - Must come after filters.js -->
+  <script src="script.js"></script>
+  <script src="consent.js"></script>
+</body>
+</html>
+

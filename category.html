@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Jobs in selected category - updated daily from top Sri Lankan job sites." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Lanka Jobs - Category</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="jobs-style.css">
+  <link rel="stylesheet" href="job-counts.css">
+  <link rel="stylesheet" href="filters-style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Category page has no left sidebar => make layout single column */
+    .jobs-main-layout { grid-template-columns: 1fr !important; }
+    .jobs-main-layout .jobs-content { grid-column: 1 / -1; }
+  /* Hide pagination until script renders */
+  #pagination { display: none; }
+  </style>
+  <script src="perf.js" defer></script>
+  <script>
+    // Normalize query params and set window.SHEET_NAME before any other scripts run
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const sheet = params.get('sheet');
+      const category = params.get('category');
+      const selected = sheet || category;
+
+      // Fallback default if neither provided
+      const defaultSheet = 'IT-Sware/DB/QA/Web/Graphics/GIS';
+      const sheetName = selected || defaultSheet;
+
+      // Expose for script.js to pick up
+      window.SHEET_NAME = sheetName;
+
+      // If only category= is present, rewrite URL to sheet= (no reload)
+      if (!sheet && category) {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('category');
+        url.searchParams.delete('page');
+        url.searchParams.set('sheet', sheetName);
+        window.history.replaceState({}, '', url);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Modern Navbar -->
+  <nav class="navbar">
+  <meta name="description" content="AI curated Sri Lanka jobs by category. View 7 fresh rotating listings in this category updated frequently." />
+  <link rel="canonical" href="https://www.srilankanjobs.example/category.html" />
+  <meta property="og:title" content="Sri Lanka Jobs by Category (AI Curated)" />
+  <meta property="og:description" content="Browse a focused set of AI-selected new jobs for this category in Sri Lanka." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Sri Lanka Job Category","isPartOf":{"@type":"WebSite","name":"Srilankan Jobs","url":"https://www.srilankanjobs.example/"}}
+  </script>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-briefcase"></i>
+        <span>JobPortal LK</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.html#categories" class="nav-link active">
+            <i class="fas fa-briefcase"></i>
+            Jobs
+          </a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a href="blog.html" class="nav-link">
+            <i class="fab fa-blogger-b"></i>
+            Blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="https://freecvcreator.com/" class="nav-link" target="_blank" rel="noopener" title="Create CV for Free">
+            <i class="fas fa-file-alt"></i>
+            CV Maker <span class="badge-free">FREE</span>
+          </a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  
+
+  <!-- Jobs Container -->
+  <main class="jobs-section">
+    <div class="container">
+      <div class="jobs-filter">
+        <div class="filter-left">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-th"></i> All Jobs
+          </button>
+          <button class="filter-btn" data-filter="recent">
+            <i class="fas fa-clock"></i> Recent
+          </button>
+        </div>
+        <div class="filter-right">
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" title="Grid view" aria-label="Grid view">
+              <i class="fas fa-th-large"></i>
+            </button>
+            <button class="view-btn" data-view="list" title="List view" aria-label="List view">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Main Content Area with Sidebar Layout -->
+      <div class="jobs-main-layout">
+        <!-- Jobs Content Area -->
+        <div class="jobs-content">
+          <div id="jobs-container" class="jobs-grid">
+            <div class="loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+              <p>Loading amazing job opportunities...</p>
+            </div>
+          </div>
+          <!-- Pagination -->
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+  <h3><i class="fas fa-briefcase"></i> Srilankan Jobs</h3>
+        <p>Your trusted partner in finding the perfect job in Sri Lanka.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#categories">Categories</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+  <p>&copy; 2025 Srilankan Jobs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+    <script src="consent.js"></script>
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }));
+
+    // View toggle functionality
+    const viewBtns = document.querySelectorAll('.view-btn');
+    const jobsContainer = document.getElementById('jobs-container');
+
+    viewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        viewBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const view = btn.dataset.view;
+        if (view === 'list') {
+          jobsContainer.classList.add('jobs-list');
+          jobsContainer.classList.remove('jobs-grid');
+        } else {
+          jobsContainer.classList.add('jobs-grid');
+          jobsContainer.classList.remove('jobs-list');
+        }
+      });
+    });
+
+  // Update page title based on URL parameter (support sheet or category)
+  const urlParams = new URLSearchParams(window.location.search);
+  const sheetParam = urlParams.get('sheet');
+  const catParam = urlParams.get('category');
+  const sheetName = sheetParam || catParam || 'IT-Sware/DB/QA/Web/Graphics/GIS';
+
+  document.getElementById('current-category').textContent = sheetName;
+  document.getElementById('category-title').textContent = `${sheetName} Jobs`;
+  </script>
+  
+  <!-- Job Counts Script -->
+  <script src="job-counts.js"></script>
+</body>
+</html>

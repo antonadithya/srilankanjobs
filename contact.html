@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - JobPortal LK</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+      <div class="nav-logo"><i class="fas fa-briefcase"></i><span>JobPortal LK</span></div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="Srilanaka-jobs.html" class="nav-link">Jobs</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+      <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <main class="static-page">
+  <div class="policy-card contact-wrapper">
+      <h1>Contact Us</h1>
+  <p class="contact-intro">Have a question or feedback? We’d love to hear from you. Send a message and we’ll respond quickly.</p>
+      <form action="#" method="post" class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <button type="submit" class="apply-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+  <h3><i class="fas fa-briefcase"></i> Srilankan Jobs</h3>
+        <p>Helping candidates find jobs across Sri Lanka.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+  <p>&copy; 2025 Srilankan Jobs. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="perf.js" defer></script>
+  <script>
+    (function(){
+      if (window.matchMedia('(max-width: 500px)').matches) {
+        const footer = document.querySelector('footer');
+        if(!footer) return;
+        footer.classList.add('footer-js-enabled');
+        footer.querySelectorAll('.footer-section h4').forEach(h => {
+          const section = h.closest('.footer-section');
+          if(section){ section.dataset.collapsed = 'true'; }
+          h.setAttribute('tabindex','0');
+          function toggle(){ const s = h.closest('.footer-section'); if(!s) return; s.dataset.collapsed = s.dataset.collapsed === 'true' ? 'false':'true'; }
+          h.addEventListener('click', toggle);
+          h.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggle(); }});
+        });
+      }
+    })();
+  </script>
+  <script>
+    (function(){
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      if(hamburger && navMenu){
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+        });
+        navMenu.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        }));
+      }
+    })();
+  </script>
+  <script src="consent.js"></script>
+</body>
+</html>
