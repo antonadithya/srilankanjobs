@@ -92,6 +92,12 @@ const categoryDisplayNames = {
     'Fishing & Aquaculture': 'Fishing & Aquaculture'
 };
 
+// Build a reverse lookup from display name -> category ID for fallback mapping
+const displayNameToCategoryId = Object.entries(categoryDisplayNames).reduce((acc, [id, display]) => {
+    acc[display.toLowerCase()] = id;
+    return acc;
+}, {});
+
 // Keep track of unique companies
 const uniqueCompanies = new Set();
 
@@ -172,36 +178,75 @@ async function fetchCategoryJobCount(category) {
         const BASE_URL = `https://docs.google.com/spreadsheets/d/${COUNTS_SHEET_ID}`;
         const GVIZ_URL = `${BASE_URL}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(category)}`;
         const EXPORT_URL = `${BASE_URL}/export?format=csv&sheet=${encodeURIComponent(category)}`;
-    const PROXY_URL = `proxy.php?url=${encodeURIComponent(GVIZ_URL)}`;
+        // Build proxies for both strategies; prefer export first (more reliable for complex names)
+        const PROXY_EXPORT_URL = `proxy.php?url=${encodeURIComponent(EXPORT_URL)}`;
+        const PROXY_GVIZ_URL = `proxy.php?url=${encodeURIComponent(GVIZ_URL)}`;
         
-        // Try URLs in sequence
-        const urls = [PROXY_URL, GVIZ_URL, EXPORT_URL];
+        // Try URLs in sequence (export first)
+        const urls = [PROXY_EXPORT_URL, EXPORT_URL, PROXY_GVIZ_URL, GVIZ_URL];
+
+        // Helper to check if response text looks like CSV, not PHP/HTML error
+        function looksLikeCSV(text) {
+            if (!text) return false;
+            const head = text.slice(0, 500).toLowerCase();
+            if (head.includes('<!doctype') || head.includes('<html') || head.includes('<?php') || head.includes('error')) {
+                return false;
+            }
+            const firstLine = text.split(/\r?\n/)[0] || '';
+            const commaCount = (firstLine.match(/,/g) || []).length;
+            return commaCount >= 2;
+        }
+        // Verify header contains expected columns for jobs sheets
+        function headerLooksValid(headerLine) {
+            const h = headerLine.toLowerCase();
+            return h.includes('title') && h.includes('company');
+        }
         
-        let response = null;
-        for (const url of urls) {
+        let csv = '';
+        let lastError;
+        for (let i = 0; i < urls.length; i++) {
+            const url = urls[i];
             try {
-                response = await fetch(url, {
+                const response = await fetch(url, {
                     method: 'GET',
                     mode: 'cors',
+                    cache: 'no-store',
                     headers: {
                         'Accept': 'text/csv,text/plain,*/*'
                     }
                 });
-                
-                if (response.ok) {
-                    break;
+                if (!response.ok) {
+                    lastError = new Error(`HTTP ${response.status} ${response.statusText}`);
+                    console.log(`❌ ${category} attempt ${i + 1} failed:`, lastError.message);
+                    continue;
                 }
-            } catch (error) {
-                console.log(`Error fetching ${url}:`, error.message);
-                continue;
+                const text = await response.text();
+                if (!looksLikeCSV(text)) {
+                    lastError = new Error('Content is not valid CSV');
+                    console.log(`⚠️ ${category} attempt ${i + 1} returned non-CSV content; trying next URL`);
+                    continue;
+                }
+                const firstLine = (text.replace(/\r/g, '').split('\n')[0] || '');
+                if (!headerLooksValid(firstLine)) {
+                    lastError = new Error('Header does not match expected columns');
+                    console.log(`⚠️ ${category} attempt ${i + 1} header invalid: "${firstLine}"`);
+                    continue;
+                }
+                csv = text;
+                console.log(`✅ ${category} loaded via attempt ${i + 1}`);
+                break;
+            } catch (err) {
+                lastError = err;
+                console.log(`❌ ${category} attempt ${i + 1} error:`, err.message);
             }
         }
-        
-        if (!response || !response.ok) {
-            throw new Error('Failed to fetch data');
+
+        if (!csv) {
+            throw lastError || new Error('Failed to fetch CSV after all attempts');
         }
         
-        const csv = await response.text();
+        // Normalize newlines
+        csv = csv.replace(/\r/g, '');
         
         if (!csv || csv.trim().length === 0) {
             throw new Error('Empty response');
@@ -210,8 +255,14 @@ async function fetchCategoryJobCount(category) {
         // Process the CSV data
         const lines = csv.split('\n').filter(line => line.trim().length > 0);
         
-        // Skip the header row
-        const jobCount = Math.max(0, lines.length - 1);
+        // Skip the header row and count only rows with a non-empty Title
+        const dataLines = lines.slice(1);
+        let jobCount = 0;
+        for (let i = 0; i < dataLines.length; i++) {
+            const cols = parseCSVLine(dataLines[i]);
+            const title = (cols[0] || '').trim();
+            if (title) jobCount++;
+        }
         
         // Process company names
         for (let i = 1; i < lines.length; i++) {
@@ -271,18 +322,35 @@ function updateCategoryCounters() {
         const categoryLink = card.querySelector('a.category-btn');
         if (!categoryLink) return;
         
+        // Extract explicit data-category if provided (optional enhancement for reliability)
+        const dataCategory = card.getAttribute('data-category');
+        
         // Extract category ID from the URL
         const href = categoryLink.getAttribute('href');
         if (!href) return;
         
         // Parse the category from the URL
-        const url = new URL(href, window.location.origin);
-        const category = url.searchParams.get('category') || url.searchParams.get('sheet');
-        
-        if (!category) return;
-        
+        let categoryFromURL = '';
+        try {
+            const url = new URL(href, window.location.origin);
+            categoryFromURL = url.searchParams.get('category') || url.searchParams.get('sheet') || '';
+        } catch (e) {
+            // Ignore URL parse errors for malformed hrefs
+        }
+
+        // Fallback: derive category by matching the card heading text to our display mapping
+    let effectiveCategory = dataCategory || categoryFromURL;
+        if (!effectiveCategory) {
+            const headingText = (card.querySelector('h3')?.textContent || '').trim().toLowerCase();
+            if (headingText && displayNameToCategoryId[headingText]) {
+                effectiveCategory = displayNameToCategoryId[headingText];
+            }
+        }
+
+        if (!effectiveCategory) return;
+
         // Get job count for this category
-        const count = categoryJobCounts[category] || 0;
+        const count = categoryJobCounts[effectiveCategory] || 0;
         
         // Find or create the count badge
         let countBadge = card.querySelector('.job-count-badge');

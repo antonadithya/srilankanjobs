@@ -8,6 +8,9 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: text/csv');
+// Disable caching to ensure fresh counts
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
 
 if (!isset($_GET['url'])) {
     http_response_code(400);
@@ -28,7 +31,8 @@ if (!preg_match('/^https:\/\/docs\.google\.com\/spreadsheets\//', $url)) {
 $context = stream_context_create([
     'http' => [
         'timeout' => 30,
-        'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'header' => "Cache-Control: no-cache\r\nPragma: no-cache\r\n"
     ]
 ]);
 
